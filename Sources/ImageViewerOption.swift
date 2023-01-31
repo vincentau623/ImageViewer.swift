@@ -6,4 +6,5 @@ public enum ImageViewerOption {
     case closeIcon(UIImage)
     case rightNavItemTitle(String, delegate: RightNavItemDelegate?)
     case rightNavItemIcon(UIImage, delegate: RightNavItemDelegate?)
+    case imageTag(Int)
 }

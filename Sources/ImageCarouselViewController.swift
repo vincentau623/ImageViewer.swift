@@ -17,6 +17,8 @@ public class ImageCarouselViewController:UIPageViewController {
         }
     }
     
+    var imageTag = -1
+
     var options:[ImageViewerOption] = []
     
     weak var rightNavItemDelegate:RightNavItemDelegate?
@@ -105,6 +107,9 @@ public class ImageCarouselViewController:UIPageViewController {
                         target: self,
                         action: #selector(diTapRightNavBarItem(_:)))
                     rightNavItemDelegate = delegate
+                case .imageTag(let tag):
+                    self.imageTag = tag
+
             }
         }
     }
@@ -158,7 +163,7 @@ public class ImageCarouselViewController:UIPageViewController {
         guard let _delegate = rightNavItemDelegate,
             let _firstVC = viewControllers?.first as? ImageViewerController
             else { return }
-        _delegate.imageViewer(self, didTapRightNavItem: _firstVC.index)
+        _delegate.imageViewer(self, didTapRightNavItem: _firstVC.index, imageTag: self.imageTag)
     }
     
     override public var preferredStatusBarStyle: UIStatusBarStyle {

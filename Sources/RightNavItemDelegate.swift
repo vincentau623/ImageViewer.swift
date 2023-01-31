@@ -1,4 +1,4 @@
 
 public protocol RightNavItemDelegate:class {
-    func imageViewer(_ imageViewer: ImageCarouselViewController, didTapRightNavItem index:Int)
+    func imageViewer(_ imageViewer: ImageCarouselViewController, didTapRightNavItem index:Int, imageTag:Int)
 }
